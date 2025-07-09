@@ -1,0 +1,110 @@
+<div
+  class="p-8 max-w-xl mx-auto bg-white shadow-xl rounded-2xl border border-gray-100 mt-8"
+>
+  <h2 class="text-2xl font-semibold mb-4 text-teal-400">New Place</h2>
+  <hr />
+
+  <form
+    class="mt-4"
+    id="PlaceForm"
+    (ngSubmit)="saveFields()"
+    [formGroup]="fieldForm"
+  >
+    <div class="mb-4">
+      <label class="block text-gray-600 font-medium mb-2">Name</label>
+      <input
+        type="text"
+        name="Name"
+        id="name"
+        formControlName="name"
+        placeholder="Ex: Christ the Redeemer, Copacabana Beach, Paulista Avenue"
+        class="w-full p-3 rounded shadow-sm border border-gray-200 focus:ring focus:outline-none focus:ring-teal-200 transition duration-300 ease-in-out"
+        required
+      />
+      <span *ngIf="isInvalidField('name')" class="text-red-500 text-sm">
+        Required field
+      </span>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-600 font-medium mb-2">Category</label>
+
+      <select
+        name="place"
+        id="place"
+        formControlName="place"
+        [(ngModel)]="searchCategory"
+        class="w-full flex-1 border p-3 rounded shadow-sm border-gray-200 focus:ring focus:outline-none focus:ring-teal-200 transition duration-300 ease-in-out text-[#6b7280]"
+      >
+        <option value="" disabled hidden>Select a category</option>
+        <option [value]="place.name" *ngFor="let place of categories">
+          {{ place.name }}
+        </option>
+      </select>
+      <span *ngIf="isInvalidField('place')" class="text-red-500 text-sm">
+        Required field
+      </span>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-600 font-medium mb-2">location</label>
+      <input
+        type="text"
+        name="location"
+        id="location"
+        formControlName="location"
+        placeholder="Ex: São Paulo"
+        class="w-full p-3 rounded shadow-sm border border-gray-200 focus:ring focus:outline-none focus:ring-teal-200 transition duration-300 ease-in-out"
+        required
+      />
+      <span *ngIf="isInvalidField('location')" class="text-red-500 text-sm">
+        Required field
+      </span>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-600 font-medium mb-2">Image URL</label>
+      <input
+        type="text"
+        name="imageUrl"
+        id="imageUrl"
+        formControlName="imageUrl"
+        placeholder="Ex: https://loremflickr.com/400/250/beach"
+        class="w-full p-3 rounded shadow-sm border border-gray-200 focus:ring focus:outline-none focus:ring-teal-200 transition duration-300 ease-in-out"
+        required
+      />
+      <span *ngIf="isInvalidField('imageUrl')" class="text-red-500 text-sm">
+        Required field
+      </span>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-600 font-medium mb-2">Review</label>
+      <select
+        name="review"
+        id="review"
+        formControlName="review"
+        [(ngModel)]="reviewPlace"
+        class="w-full flex-1 border p-3 rounded shadow-sm border-gray-200 focus:ring focus:outline-none focus:ring-teal-200 transition duration-300 ease-in-out text-[#6b7280]"
+        required
+      >
+        <option value="" disabled hidden>Select a Review</option>
+        <option [value]=1>1 - Poor</option>
+        <option [value]=2>2 - Fair</option>
+        <option [value]=3>3 - Good</option>
+        <option [value]=4>4 - Very good</option>
+        <option [value]=5>5 - Excellent</option>
+      </select>
+      <span *ngIf="isInvalidField('review')" class="text-red-500 text-sm">
+        Required field
+      </span>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-teal-600 text-white font-semibold p-3 rounded shadow hover:bg-teal-700 transition duration-300"
+    >
+      Register Place
+    </button>
+  </form>
+</div>
