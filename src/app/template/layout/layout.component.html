@@ -1,0 +1,66 @@
+<div class="min-h-screen flex flex-col">
+  <header class="bg-gradient-to-r from-teal-400 to-teal-600 text-white p-6 shadow-lg">
+    <div class="text-center">
+      <h1 class="text-3xl font-bold">
+        {{ props.title || "Welcome!" }}
+      </h1>
+      <p class="text-lg mt-2">
+        {{
+          props.subTitle ||
+            "Explore, organize, and share your favorite places."
+        }}
+      </p>
+    </div>
+
+    <div class="mt-4">
+      <hr class="border-t border-teal-300 opacity-50" />
+    </div>
+
+    <nav class="mt-4">
+      <ul class="flex justify-center space-x-6 text-white font-semibold">
+        <li>
+          <a
+            class="text-white hover:text-lime-300 hover:underline underline-offset-4 transition duration-200"
+            routerLink="/dashboard/gallery"
+          >
+            Galleries
+          </a>
+        </li>
+        <li>
+          <a
+            class="text-white hover:text-lime-300 hover:underline underline-offset-4 transition duration-200"
+            routerLink="/dashboard/categories"
+          >
+            Categories
+          </a>
+        </li>
+        <li>
+          <a
+            class="text-white hover:text-lime-300 hover:underline underline-offset-4 transition duration-200"
+            routerLink="/dashboard/places"
+          >
+            Places
+          </a>
+        </li>
+        <li>
+          <a
+            class="text-white hover:cursor-pointer hover:text-lime-300 hover:underline underline-offset-4 transition duration-200"
+            (click)="logout()"
+          >
+            Log out
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="flex-1">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="bg-gray-300 text-center p-4">
+    <p class="text-gray text-sm">
+      2025 Giulianna Ribeiro. All rights reserved.
+    </p>
+  </footer>
+</div>
