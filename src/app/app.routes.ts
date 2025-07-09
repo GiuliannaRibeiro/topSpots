@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { LandingPageComponent } from './landing-page/login.component';
+import { LoginComponent } from './login/login.component';
 import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
   {
     path: '',
-    component: LandingPageComponent
+    component: LoginComponent
   },
   {
     path: 'dashboard',
