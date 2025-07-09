@@ -1,27 +1,51 @@
-# TopSpots
+# 🌍 TopSpots
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.19.
+TopSpots is a web application built with **Angular 18** that allows users to list, view, and filter their **favorite places**. The system uses **Google OAuth2** for authentication and simulates a REST API with **JSON Server**. With a fully responsive design, the project focuses on performance, best practices, and a clean interface using **TailwindCSS**.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## ✅ Features
 
-## Code scaffolding
+- **Google Login (OAuth2):** Simplified and secure authentication  
+- **Place Display:** Shows image, name, category, and rating  
+- **Dynamic Filtering:** Real-time search by name and category  
+- **Category Management:** Categories list handled via JSON  
+- **Rating System:** Star-based rating display  
+- **Route Protection:** AuthGuard implementation for secure routes  
+- **Responsive Design:** Built with TailwindCSS for consistent experience across devices  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 🛠️ Technologies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular 18 (with Router, Lazy Loading, Route Data)  
+- TailwindCSS  
+- JSON Server  
+- TypeScript  
+- Angular OAuth2 OIDC (v18)  
+- RxJS + Signals  
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🚀 Installation & Running
 
-## Running end-to-end tests
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/GiuliannaRibeiro/topspots.git
+   cd topspots
+   ```
+   
+2. **Install dependencies**  
+   ```bash
+   npm install
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+3. **Start the fake API**  
+   ```bash
+   npm run server
+   ```
+   
+4. **Run the Angular application**  
+   ```bash
+   ng serve -o
+   ```
