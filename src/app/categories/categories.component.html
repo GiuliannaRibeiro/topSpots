@@ -1,0 +1,48 @@
+<div
+  class="p-8 max-w-xl mx-auto bg-white shadow-xl rounded-2xl border border-gray-100 mt-8"
+>
+  <h2 class="text-2xl font-semibold mb-4 text-teal-400">New Category</h2>
+  <hr />
+
+  <form
+    class="mt-4"
+    id="placeForm"
+    (ngSubmit)="saveFields()"
+    [formGroup]="fieldForm"
+  >
+    <div class="mb-4">
+      <label class="block text-gray-600 font-medium mb-2">Name</label>
+      <input
+        type="text"
+        name="Name"
+        id="name"
+        formControlName="name"
+        placeholder="Ex: Restaurants, Beaches, Markets"
+        class="w-full p-3 rounded shadow-sm border border-gray-200 focus:ring focus:outline-none focus:ring-teal-200 transition duration-300 ease-in-out"
+        required
+      />
+      <span *ngIf="isInvalidField('name')" class="text-red-500 text-sm">Required field</span>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-600 font-medium mb-2">Description</label>
+      <textarea
+        rows="4"
+        name="description"
+        id="description"
+        formControlName="description"
+        placeholder="Ex: Great place to go with the family..."
+        class="w-full p-3 rounded shadow-sm border border-gray-200 focus:ring focus:outline-none focus:ring-teal-200 transition duration-300 ease-in-out"
+        required
+      ></textarea>
+      <span *ngIf="isInvalidField('description')" class="text-red-500 text-sm"> Required field </span>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-teal-600 text-white font-semibold p-3 rounded shadow hover:bg-teal-700 transition duration-300"
+    >
+      Register Category
+    </button>
+  </form>
+</div>
