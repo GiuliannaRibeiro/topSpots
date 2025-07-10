@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "name": "Beaches",
+      "description": "Relaxing places near the ocean or sea",
+      "id": 1
+    },
+    {
+      "name": "Museum",
+      "description": "Cultural spaces showcasing art, history, and science exhibits",
+      "id": 2
+    }
+  ],
+  "places": [
+    {
+      "name": "English Bay",
+      "place": "Beaches",
+      "location": "Vancouver",
+      "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/97/46/8f/4508-sky-city-metropolitan.jpg?w=500&h=400&s=1",
+      "review": "4",
+      "id": 1
+    }
+  ]
+}
