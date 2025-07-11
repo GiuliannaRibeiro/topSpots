@@ -1,18 +1,15 @@
-import { inject, Inject } from '@angular/core';
+import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthGoogleService } from '../services/auth-google/auth-google.service';
-import type { User } from '../models/user/user.interface';
+import { OAuthService } from 'angular-oauth2-oidc';
 
-export const authGuard: CanActivateFn = (route, state) => {
-  const loginService: AuthGoogleService = inject(AuthGoogleService);
+export const authGuard: CanActivateFn = () => {
+  const loginService = inject(OAuthService);
   const router: Router = inject(Router);
 
-  const loggedProfile: User = loginService.getLoggedProfile()
-
-  if(!loggedProfile) {
+  if (!loginService.hasValidAccessToken()) {
     router.navigate(['']);
     return false;
   }
-  
+
   return true;
 };
