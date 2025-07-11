@@ -12,7 +12,8 @@ TopSpots is a web application built with **Angular 18** that allows users to lis
 - **Category Management:** Categories list handled via JSON  
 - **Rating System:** Star-based rating display  
 - **Route Protection:** AuthGuard implementation for secure routes  
-- **Responsive Design:** Built with TailwindCSS for consistent experience across devices  
+- **Responsive Design:** Built with TailwindCSS for consistent experience across devices
+- **Docker Support:** Production-ready Dockerfile for containerized deployment
 
 ---
 
