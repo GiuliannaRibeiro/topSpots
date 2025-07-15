@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LayoutProps } from './layout.props';
 import { filter, map } from 'rxjs';
 import { AuthGoogleService } from '../../../services/auth-google/auth-google.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-layout',
@@ -20,7 +21,8 @@ export class LayoutComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRouter: ActivatedRoute,
-    private loginService: AuthGoogleService
+    private loginService: AuthGoogleService,
+    private snackBar: MatSnackBar
    ) {}
 
    ngOnInit(): void {
@@ -41,6 +43,16 @@ export class LayoutComponent implements OnInit {
    }
 
    logout() {
-    this.loginService.logout()
-   }
+    const userName = this.profile()?.given_name || 'you';
+  
+    this.loginService.logout();
+  
+    this.snackBar.open(`See you next time, ${userName}! 👋`, 'Close', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+      panelClass: ['custom-snackbar']
+    });
+  }
+  
 }

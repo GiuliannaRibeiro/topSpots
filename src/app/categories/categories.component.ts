@@ -7,6 +7,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -18,7 +20,11 @@ import {
 export class CategoriesComponent {
   fieldForm: FormGroup;
 
-  constructor(private service: CategoryService) {
+  constructor(
+    private service: CategoryService,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) {
     this.fieldForm = new FormGroup({
       name: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
@@ -31,7 +37,15 @@ export class CategoriesComponent {
     if (this.fieldForm.valid) {
       this.service.save(this.fieldForm.value).subscribe({
         next: res => {
-          console.log('Category saved successfully!', res);
+          const snack = this.snackBar.open('Category saved! Add a place now?', 'Add Place', {
+            duration: 5000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+          });
+    
+          snack.onAction().subscribe(() => {
+            this.router.navigate(['/dashboard/places']);
+          });
           this.fieldForm.reset();
         },
         error: err => console.error('An error has occurred', err),

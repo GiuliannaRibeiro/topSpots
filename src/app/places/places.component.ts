@@ -10,6 +10,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Category } from '../../models/category/category.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-places',
@@ -27,7 +29,9 @@ export class PlacesComponent implements OnInit {
 
   constructor(
     private service: PlacesService,
-    private placeService: CategoryService
+    private placeService: CategoryService,
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {
     this.fieldForm = new FormGroup({
       name: new FormControl('', Validators.required),
@@ -53,10 +57,18 @@ export class PlacesComponent implements OnInit {
     this.fieldForm.markAllAsTouched();
 
     if (this.fieldForm.valid) {
-      console.log(this.fieldForm.value);
       this.service.save(this.fieldForm.value).subscribe({
         next: res => {
-          console.log('Place saved successfully!', res);
+          const snack = this.snackBar.open('Place saved successfully!', 'Go to Gallery', {
+            duration: 5000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+          });
+    
+          snack.onAction().subscribe(() => {
+            this.router.navigate(['/dashboard/gallery']);
+          });
+    
           this.fieldForm.reset();
         },
         error: err => console.error('An error has occurred', err),
