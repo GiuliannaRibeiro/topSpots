@@ -47,5 +47,10 @@ export class LoginComponent {
     }
   
     return false;
-  }  
+  }
+
+  logout(event?: Event) {
+    if (event) event.preventDefault();
+    this.loginService.logout();
+  }
 }

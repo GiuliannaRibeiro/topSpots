@@ -29,7 +29,10 @@
       class="mx-auto bg-white text-teal-400 font-semibold py-2 px-8 rounded-full shadow hover:bg-teal-700 hover:text-white transition duration-300 flex items-center justify-center"
     >
       <img class="mr-3 w-[40px] rounded-full" [src]="imgProfile" alt="Google logo" />
-      <span>Hi {{ profile?.name }}, click here to enjoy the site!</span>
+      <span>
+        Hi {{ profile?.name }}, click here to enjoy the site!
+        <a class="underline ml-2 hover:text-white transition" href="#" (click)="logout($event)">Not you?</a>
+      </span>
     </button>
 
     <button
