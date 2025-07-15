@@ -19,11 +19,12 @@ TopSpots is a web application built with **Angular 18** that allows users to lis
 
 ## 🛠️ Technologies
 
-- Angular 18 (with Router, Lazy Loading, Route Data)  
+- Angular 18 (with Router, Lazy Loading, Route Data)
+- Angular Material (MatSnackBar)
 - TailwindCSS  
 - JSON Server  
 - TypeScript  
-- Angular OAuth2 OIDC (v18)  
+- Angular OAuth2 OIDC
 - RxJS + Signals
 - Lottie Animations (ngx-lottie + lottie-web)
 
@@ -51,3 +52,14 @@ TopSpots is a web application built with **Angular 18** that allows users to lis
    ```bash
    ng serve -o
    ```
+
+---
+
+## 🖼️ App Preview
+
+- **Login Screen**  
+![Login screen](./src/assets/photo/login-preview.png)
+
+- **Places Gallery**  
+![Places gallery](./src/assets/photo/places-gallery.png)
+
