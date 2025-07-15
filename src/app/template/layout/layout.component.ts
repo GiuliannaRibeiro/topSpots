@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit } from '@angular/core';
 import { RouterOutlet, RouterLink, Router, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LayoutProps } from './layout.props';
@@ -14,6 +14,8 @@ import { AuthGoogleService } from '../../../services/auth-google/auth-google.ser
 })
 export class LayoutComponent implements OnInit {
   props: LayoutProps = {title: '', subTitle: ''}
+  private authService = inject(AuthGoogleService);
+  profile = computed(() => this.authService.getLoggedProfile());
 
   constructor(
     private router: Router,
