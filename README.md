@@ -24,7 +24,8 @@ TopSpots is a web application built with **Angular 18** that allows users to lis
 - JSON Server  
 - TypeScript  
 - Angular OAuth2 OIDC (v18)  
-- RxJS + Signals  
+- RxJS + Signals
+- Lottie Animations (ngx-lottie + lottie-web)
 
 ---
 
